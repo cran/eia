@@ -1,6 +1,6 @@
 Package: eia
 Title: API Wrapper for 'US Energy Information Administration' Open Data
-Version: 0.3.2
+Version: 0.3.3
 Authors@R: c(
     person("Matthew", "Leonawicz", email = "matt_leonawicz@esource.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9452-2771")),
     person(given = "E Source", role = c("cph", "fnd"))
@@ -16,7 +16,7 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/leonawicz/eia
 BugReports: https://github.com/leonawicz/eia/issues
-Date: 2019-07-11
+Date: 2019-09-16
 Imports: tibble, magrittr, httr, jsonlite, dplyr, purrr, memoise,
         lubridate
 Suggests: testthat, knitr, rmarkdown, covr, lintr, tidyr
@@ -24,9 +24,9 @@ VignetteBuilder: knitr
 Language: en-US
 RoxygenNote: 6.1.1
 NeedsCompilation: no
-Packaged: 2019-07-22 14:23:07 UTC; Matt
+Packaged: 2019-09-16 16:39:03 UTC; mleonawicz
 Author: Matthew Leonawicz [aut, cre] (<https://orcid.org/0000-0001-9452-2771>),
   E Source [cph, fnd]
 Maintainer: Matthew Leonawicz <matt_leonawicz@esource.com>
 Repository: CRAN
-Date/Publication: 2019-07-25 09:30:02 UTC
+Date/Publication: 2019-09-16 16:50:03 UTC
