@@ -1,3 +1,9 @@
+# eia 0.3.4
+
+* Added initial report function.
+* Minor code improvements.
+* Minor documentation updates.
+
 # eia 0.3.3
 
 * Added a wrapper for the series category endpoint.

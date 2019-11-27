@@ -3,7 +3,7 @@
 
 # eia <img src="man/figures/logo.png" style="margin-left:10px;margin-bottom:5px;" width="120" align="right">
 
-**Author:** [Matthew Leonawicz](https://leonawicz.github.io/blog/)
+**Author:** [Matthew Leonawicz](https://github.com/leonawicz)
 <a href="https://orcid.org/0000-0001-9452-2771" target="orcid.widget">
 <image class="orcid" src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" height="16"></a>
 <br/> **License:** [MIT](https://opensource.org/licenses/MIT)<br/>
@@ -12,18 +12,19 @@
 state and is being actively
 developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
 [![Travis build
-status](https://travis-ci.org/leonawicz/eia.svg?branch=master)](https://travis-ci.org/leonawicz/eia)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/leonawicz/eia?branch=master&svg=true)](https://ci.appveyor.com/project/leonawicz/eia)
+status](https://travis-ci.org/ropensci/eia.svg?branch=master)](https://travis-ci.org/ropensci/eia)
+[![AppVeyor Build
+Status](https://ci.appveyor.com/api/projects/status/github/ropensci/eia?branch=master&svg=true)](https://ci.appveyor.com/project/leonawicz/eia)
 [![Codecov test
-coverage](https://codecov.io/gh/leonawicz/eia/branch/master/graph/badge.svg)](https://codecov.io/gh/leonawicz/eia?branch=master)
+coverage](https://codecov.io/gh/ropensci/eia/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/eia?branch=master)
 
+[![](https://badges.ropensci.org/342_status.svg)](https://github.com/ropensci/onboarding/issues/342)
 [![CRAN
 status](http://www.r-pkg.org/badges/version/eia)](https://cran.r-project.org/package=eia)
 [![CRAN RStudio mirror
 downloads](http://cranlogs.r-pkg.org/badges/eia)](https://cran.r-project.org/package=eia)
 [![Github
-Stars](https://img.shields.io/github/stars/leonawicz/eia.svg?style=social&label=Github)](https://github.com/leonawicz/eia)
+Stars](https://img.shields.io/github/stars/ropensci/eia.svg?style=social&label=Github)](https://github.com/ropensci/eia)
 
 The `eia` package provides API access to data from the US [Energy
 Information Administration](https://www.eia.gov/) (EIA).
@@ -43,28 +44,34 @@ and caching of API request results.
 
 ## Installation
 
-You can install the development version of `eia` from GitHub with:
+Install the CRAN release of `eia` with
+
+``` r
+install.packages("eia")
+```
+
+To install the development version from GitHub use
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("leonawicz/eia")
+remotes::install_github("ropensci/eia")
 ```
 
 ## Example
 
 To begin, store your API key. You can place it somewhere like your
-`.Renviron` file. You can set it with `eia_set_key`. You can always pass
-it explicitly to the `key` argument of a function.
+`.Renviron` file and never have to do anything with the key when you use
+the package. You can set it with `eia_set_key` in your R session. You
+can always pass it explicitly to the `key` argument of a function.
 
 ``` r
 library(eia)
 
 # not run
-eia_set_key("yourkey") # see help file for details/options
+eia_set_key("yourkey") # set API key if not already set globally
 ```
 
-Once you have a `key` to use explicitly, or have set it somewhere
-globally, load a time series of net electricity generation:
+Load a time series of net electricity generation.
 
 ``` r
 id <- "ELEC.GEN.ALL-AK-99.A"
@@ -80,7 +87,7 @@ d$data[[1]]
 #> # A tibble: 10 x 3
 #>    value date        year
 #>    <dbl> <date>     <int>
-#>  1 6515. 2018-01-01  2018
+#>  1 6247. 2018-01-01  2018
 #>  2 6497. 2017-01-01  2017
 #>  3 6335. 2016-01-01  2016
 #>  4 6285. 2015-01-01  2015
@@ -90,16 +97,25 @@ d$data[[1]]
 #>  8 6871. 2011-01-01  2011
 #>  9 6760. 2010-01-01  2010
 #> 10 6702. 2009-01-01  2009
+
+library(ggplot2)
+library(tidyr)
+unnest(d, cols = data) %>% ggplot(aes(year, value)) +
+  geom_line() + labs(y = d$units, title = d$name)
 ```
+
+<img src="man/figures/README-example-1.png" width="100%" />
 
 ## References
 
 See the collection of vignette tutorials and examples as well as
 complete package documentation available at the `eia` package
-[website](https://leonawicz.github.io/eia/).
+[website](https://docs.ropensci.org/eia).
 
 -----
 
 Please note that this project is released with a [Contributor Code of
-Conduct](https://leonawicz.github.io/eia/CODE_OF_CONDUCT.html). By
-participating in this project you agree to abide by its terms.
+Conduct](https://github.com/ropensci/eia/blob/master/CODE_OF_CONDUCT.md).
+By participating in this project you agree to abide by its terms.
+
+[![ropensci\_footer](https://ropensci.org/public_images/ropensci_footer.png)](https://ropensci.org)

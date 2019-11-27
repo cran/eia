@@ -5,7 +5,8 @@ test_that("key storage and retrieval works as expected", {
     "Key stored successfully in package environment.",
     "Key stored successfully in options()."
   )
-  wrn <- "EIA API key not found in package environment, global options, or system enivronment variables."
+  wrn <- paste("EIA API key not found in package environment,",
+          "global options, or system enivronment variables.")
 
   expect_warning(x <- eia_get_key("env"), wrn)
   expect_is(x, "NULL")
@@ -21,7 +22,7 @@ test_that("key storage and retrieval works as expected", {
 
 test_that("cache clearing functions execute", {
   expect_is(eia_clear_cache(), "NULL")
-  expect_is( eia_clear_cats(), "NULL")
+  expect_is(eia_clear_cats(), "NULL")
   expect_is(eia_clear_series(), "NULL")
   expect_is(eia_clear_geoset(), "NULL")
 })

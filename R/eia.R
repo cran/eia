@@ -1,3 +1,5 @@
+globalVariables(".data")
+
 #' eia: EIA API wrapper
 #'
 #' This package provides API access to data from the US \href{https://www.eia.gov/}{Energy Information Administration} (EIA).
@@ -10,7 +12,7 @@ NULL
 
 #' Pipe operator
 #'
-#' See \code{magrittr::\link[magrittr]{\%>\%}} for details.
+#' See \code{magrittr} package for details.
 #'
 #' @name %>%
 #' @rdname pipe
@@ -51,9 +53,10 @@ NULL
   list(start = start, end = end, n = n)
 }
 
+#' @importFrom httr GET content
 .eia_get <- function(x){
   .antidos_before("eia")
-  x <- httr::GET(x, .session_eia_env$ua)
+  x <- httr::RETRY(verb = "GET", url = x, .session_eia_env$ua)
   .antidos_after("eia")
   if(x$status_code == "404") stop("Page not found", call. = FALSE)
   httr::content(x, as = "text", encoding = "UTF-8")
