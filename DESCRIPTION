@@ -1,10 +1,7 @@
 Package: eia
 Title: API Wrapper for 'US Energy Information Administration' Open Data
-Version: 0.3.6
-Authors@R: c(
-    person("Matthew", "Leonawicz", email = "matt_leonawicz@esource.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9452-2771")),
-    person(given = "E Source", role = c("cph", "fnd"))
-    )
+Version: 0.3.7
+Authors@R: person("Matthew", "Leonawicz", email = "mfleonawicz@gmail.com", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-9452-2771"))
 Description: Provides API access to data from the 'US Energy Information Administration' ('EIA') <https://www.eia.gov/>. 
     Use of the API requires a free API key obtainable at <https://www.eia.gov/opendata/register.php>.
     The package includes functions for searching 'EIA' data categories and importing time series and geoset time series datasets. 
@@ -14,7 +11,7 @@ Description: Provides API access to data from the 'US Energy Information Adminis
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-URL: https://docs.ropensci.org/eia (website)
+URL: https://docs.ropensci.org/eia/ (website)
         https://github.com/ropensci/eia
 BugReports: https://github.com/ropensci/eia/issues
 Imports: tibble, magrittr, httr, jsonlite, dplyr, purrr, memoise,
@@ -22,11 +19,10 @@ Imports: tibble, magrittr, httr, jsonlite, dplyr, purrr, memoise,
 Suggests: testthat, knitr, rmarkdown, covr, tidyr, ggplot2
 VignetteBuilder: knitr
 Language: en-US
-RoxygenNote: 7.1.0
+RoxygenNote: 7.1.1
 NeedsCompilation: no
-Packaged: 2020-05-08 21:50:09 UTC; Matt
-Author: Matthew Leonawicz [aut, cre] (<https://orcid.org/0000-0001-9452-2771>),
-  E Source [cph, fnd]
-Maintainer: Matthew Leonawicz <matt_leonawicz@esource.com>
+Packaged: 2021-02-20 16:12:29 UTC; Matt
+Author: Matthew Leonawicz [aut, cre] (<https://orcid.org/0000-0001-9452-2771>)
+Maintainer: Matthew Leonawicz <mfleonawicz@gmail.com>
 Repository: CRAN
-Date/Publication: 2020-05-08 22:00:02 UTC
+Date/Publication: 2021-02-20 23:00:05 UTC

@@ -14,6 +14,31 @@
 
 <title>API details</title>
 
+<script>// Hide empty <a> tag within highlighted CodeBlock for screen reader accessibility (see https://github.com/jgm/pandoc/issues/6352#issuecomment-626106786) -->
+// v0.0.1
+// Written by JooYoung Seo (jooyoung@psu.edu) and Atsushi Yasumoto on June 1st, 2020.
+
+document.addEventListener('DOMContentLoaded', function() {
+  const codeList = document.getElementsByClassName("sourceCode");
+  for (var i = 0; i < codeList.length; i++) {
+    var linkList = codeList[i].getElementsByTagName('a');
+    for (var j = 0; j < linkList.length; j++) {
+      if (linkList[j].innerHTML === "") {
+        linkList[j].setAttribute('aria-hidden', 'true');
+      }
+    }
+  }
+});
+</script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
 
 
 <style type="text/css">code{white-space: pre;}</style>
@@ -104,6 +129,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   }
 })();
 </script>
+
 
 
 
@@ -370,17 +396,17 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <p>A call to <code>eia_parent_cats</code> is a good example. This function is recursive, but say you know the number of calls is going to be small; it is overkill to impose the additional wait. Note that in order to show this example, it is necessary to turn off memoization to avoid returning a cached result.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="kw">system.time</span>(x &lt;-<span class="st"> </span><span class="kw">eia_parent_cats</span>(<span class="dv">742</span>, <span class="dt">cache =</span> <span class="ot">FALSE</span>))</span>
 <span id="cb5-2"><a href="#cb5-2"></a><span class="co">#&gt;    user  system elapsed </span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt;    0.14    0.04    6.73</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="co">#&gt;    0.12    0.00    5.89</span></span>
 <span id="cb5-4"><a href="#cb5-4"></a></span>
 <span id="cb5-5"><a href="#cb5-5"></a><span class="kw">options</span>(<span class="dt">eia_antidos =</span> <span class="dv">0</span>)</span>
 <span id="cb5-6"><a href="#cb5-6"></a><span class="kw">system.time</span>(x &lt;-<span class="st"> </span><span class="kw">eia_parent_cats</span>(<span class="dv">742</span>, <span class="dt">cache =</span> <span class="ot">FALSE</span>))</span>
 <span id="cb5-7"><a href="#cb5-7"></a><span class="co">#&gt;    user  system elapsed </span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#&gt;    0.02    0.00    1.05</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="co">#&gt;    0.08    0.00    0.80</span></span>
 <span id="cb5-9"><a href="#cb5-9"></a></span>
 <span id="cb5-10"><a href="#cb5-10"></a>x</span>
 <span id="cb5-11"><a href="#cb5-11"></a><span class="co">#&gt; # A tibble: 6 x 4</span></span>
 <span id="cb5-12"><a href="#cb5-12"></a><span class="co">#&gt;   category_id name                    notes parent_category_id</span></span>
-<span id="cb5-13"><a href="#cb5-13"></a><span class="co">#&gt; * &lt;chr&gt;       &lt;chr&gt;                   &lt;chr&gt; &lt;chr&gt;             </span></span>
+<span id="cb5-13"><a href="#cb5-13"></a><span class="co">#&gt;   &lt;chr&gt;       &lt;chr&gt;                   &lt;chr&gt; &lt;chr&gt;             </span></span>
 <span id="cb5-14"><a href="#cb5-14"></a><span class="co">#&gt; 1 371         EIA Data Sets           &quot;&quot;    &lt;NA&gt;              </span></span>
 <span id="cb5-15"><a href="#cb5-15"></a><span class="co">#&gt; 2 0           Electricity             &quot;&quot;    371               </span></span>
 <span id="cb5-16"><a href="#cb5-16"></a><span class="co">#&gt; 3 32          Total consumption (Btu) &quot;&quot;    0                 </span></span>

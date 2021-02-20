@@ -5,12 +5,12 @@
 
 **Author:** [Matthew Leonawicz](https://github.com/leonawicz)
 <a href="https://orcid.org/0000-0001-9452-2771" target="orcid.widget">
-<image class="orcid" src="https://members.orcid.org/sites/default/files/vector_iD_icon.svg" height="16"></a>
+<img alt="ORCID logo" src="https://info.orcid.org/wp-content/uploads/2019/11/orcid_16x16.png" width="16" height="16" /></a>
 <br/> **License:** [MIT](https://opensource.org/licenses/MIT)<br/>
 
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
-developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active)
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Travis build
 status](https://travis-ci.org/ropensci/eia.svg?branch=master)](https://travis-ci.org/ropensci/eia)
 [![AppVeyor Build
@@ -18,13 +18,13 @@ Status](https://ci.appveyor.com/api/projects/status/github/ropensci/eia?branch=m
 [![Codecov test
 coverage](https://codecov.io/gh/ropensci/eia/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/eia?branch=master)
 
-[![](https://badges.ropensci.org/342_status.svg)](https://github.com/ropensci/onboarding/issues/342)
+[![](https://badges.ropensci.org/342_status.svg)](https://github.com/ropensci/software-review/issues/342)
 [![CRAN
-status](http://www.r-pkg.org/badges/version/eia)](https://cran.r-project.org/package=eia)
+status](https://www.r-pkg.org/badges/version/eia)](https://cran.r-project.org/package=eia)
 [![CRAN RStudio mirror
-downloads](http://cranlogs.r-pkg.org/badges/eia)](https://cran.r-project.org/package=eia)
+downloads](https://cranlogs.r-pkg.org/badges/eia)](https://cran.r-project.org/package=eia)
 [![Github
-Stars](https://img.shields.io/github/stars/ropensci/eia.svg?style=social&label=Github)](https://github.com/ropensci/eia)
+Stars](https://img.shields.io/github/stars/ropensci/eia.svg?style=social&label=Github)](https://github.com/ropensci/eia/)
 
 The `eia` package provides API access to data from the US [Energy
 Information Administration](https://www.eia.gov/) (EIA).
@@ -77,15 +77,15 @@ Load a time series of net electricity generation.
 id <- "ELEC.GEN.ALL-AK-99.A"
 (d <- eia_series(id, n = 10))
 #> # A tibble: 1 x 13
-#>   series_id    name                 units      f     description                 copyright source          iso3166 geography start end   updated     data    
-#>   <chr>        <chr>                <chr>      <chr> <chr>                       <chr>     <chr>           <chr>   <chr>     <chr> <chr> <chr>       <list>  
-#> 1 ELEC.GEN.AL~ Net generation : al~ thousand ~ A     "Summation of all fuels us~ None      EIA, U.S. Ener~ USA-AK  USA-AK    2001  2019  2020-03-23~ <tibble~
+#>   series_id      name                       units        f     description                         copyright source                iso3166 geography start end   updated       data     
+#>   <chr>          <chr>                      <chr>        <chr> <chr>                               <chr>     <chr>                 <chr>   <chr>     <chr> <chr> <chr>         <list>   
+#> 1 ELEC.GEN.ALL-~ Net generation : all fuel~ thousand me~ A     "Summation of all fuels used for e~ None      EIA, U.S. Energy Inf~ USA-AK  USA-AK    2001  2019  2020-10-27T1~ <tibble ~
 
 d$data[[1]]
 #> # A tibble: 10 x 3
 #>    value date        year
 #>    <dbl> <date>     <int>
-#>  1 6340. 2019-01-01  2019
+#>  1 6071. 2019-01-01  2019
 #>  2 6247. 2018-01-01  2018
 #>  3 6497. 2017-01-01  2017
 #>  4 6335. 2016-01-01  2016
@@ -98,8 +98,8 @@ d$data[[1]]
 
 library(ggplot2)
 library(tidyr)
-unnest(d, cols = data) %>% ggplot(aes(year, value)) +
-  geom_line() + labs(y = d$units, title = d$name)
+unnest(d, cols = data) %>% ggplot(aes(factor(year), value)) + geom_col() + 
+  labs(x = "Year", y = d$units, title = d$name, caption = d$description)
 ```
 
 <img src="man/figures/README-example-1.png" width="100%" />
@@ -108,7 +108,7 @@ unnest(d, cols = data) %>% ggplot(aes(year, value)) +
 
 See the collection of vignette tutorials and examples as well as
 complete package documentation available at the `eia` package
-[website](https://docs.ropensci.org/eia).
+[website](https://docs.ropensci.org/eia/).
 
 -----
 
