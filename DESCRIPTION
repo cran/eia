@@ -1,6 +1,6 @@
 Package: eia
 Title: API Wrapper for 'US Energy Information Administration' Open Data
-Version: 0.4.0
+Version: 0.4.1
 Authors@R: 
     c(person(
         given = "Matthew",
@@ -34,9 +34,9 @@ Encoding: UTF-8
 Language: en-US
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2023-10-31 15:34:14 UTC; mghoff
+Packaged: 2023-11-17 16:49:09 UTC; mghoff
 Author: Matthew Leonawicz [aut] (<https://orcid.org/0000-0001-9452-2771>),
   Matthew Hoff [aut, cre]
 Maintainer: Matthew Hoff <matthew.g.hoff@gmail.com>
 Repository: CRAN
-Date/Publication: 2023-10-31 16:20:09 UTC
+Date/Publication: 2023-11-17 19:00:10 UTC
